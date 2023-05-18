@@ -46,6 +46,7 @@ py
 PyCharm
 pylint
 pylintrc
+pyproject
 pythonic
 QMD
 qubits
@@ -58,6 +59,7 @@ SciPy
 sourcery
 Richèl
 Tidyverse
+toml
 Tribonacci
 txt
 Walkthroughs
