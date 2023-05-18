@@ -1,14 +1,15 @@
-"""
-These are the tests for all the simple functions of The Small Project
-"""
+import unittest
+import src.pfmp
 
-def test_are_numbers():
-    assert are_numbers.__doc__
-    assert not are_numbers(":-/")
-    assert are_numbers([1, 2])
-    assert are_numbers([1.1])
-    assert not are_numbers([ ])
-    assert not are_numbers(["1.2"])
+class TestAreNumbers(unittest.TestCase):
+
+    def test_are_numbers(self):
+        self.assertIsNotNone(src.pfmp.are_numbers.__doc__)
+        self.assertFalse(src.pfmp.are_numbers(":-/"))
+        self.assertTrue(src.pfmp.are_numbers([1, 2]))
+        self.assertTrue(src.pfmp.are_numbers([1.1]))
+        self.assertFalse(src.pfmp.are_numbers([ ]))
+        self.assertFalse(src.pfmp.are_numbers(["1.2"]))
 
 def test_are_strings():
     assert are_strings.__doc__
