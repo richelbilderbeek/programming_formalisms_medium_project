@@ -4,12 +4,12 @@ import src.pfmp
 class TestAreNumbers(unittest.TestCase):
 
     def test_are_numbers(self):
-        self.assertIsNotNone(src.pfmp.are_numbers.__doc__)
-        self.assertFalse(src.pfmp.are_numbers(":-/"))
-        self.assertTrue(src.pfmp.are_numbers([1, 2]))
-        self.assertTrue(src.pfmp.are_numbers([1.1]))
-        self.assertFalse(src.pfmp.are_numbers([ ]))
-        self.assertFalse(src.pfmp.are_numbers(["1.2"]))
+        self.assertIsNotNone(pfmp.are_numbers.__doc__)
+        self.assertFalse(pfmp.are_numbers(":-/"))
+        self.assertTrue(pfmp.are_numbers([1, 2]))
+        self.assertTrue(pfmp.are_numbers([1.1]))
+        self.assertFalse(pfmp.are_numbers([ ]))
+        self.assertFalse(pfmp.are_numbers(["1.2"]))
 
 def test_are_strings():
     assert are_strings.__doc__
