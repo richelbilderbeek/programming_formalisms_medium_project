@@ -219,4 +219,3 @@ def test_is_zero():
     except TypeError:
         has_thrown = True
     assert has_thrown
-\
