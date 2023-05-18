@@ -1,4 +1,4 @@
-from src.pfmp.small import is_zero
+from src.pfmp_richelbilderbeek.small import is_zero
 
 if __name__ == "__main__":
     print("Show the documentation:")

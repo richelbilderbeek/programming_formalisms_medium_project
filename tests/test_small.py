@@ -1,21 +1,21 @@
 import unittest
 
-from src.pfmp.small import are_numbers
-from src.pfmp.small import are_strings
-from src.pfmp.small import check_are_numbers
-from src.pfmp.small import check_different
-from src.pfmp.small import check_equal
-from src.pfmp.small import check_is_number
-from src.pfmp.small import check_is_probability
-from src.pfmp.small import check_is_string
-from src.pfmp.small import divide_safely
-from src.pfmp.small import is_dividable_by_three
-from src.pfmp.small import is_even
-from src.pfmp.small import is_number
-from src.pfmp.small import is_odd
-from src.pfmp.small import is_probability
-from src.pfmp.small import is_string
-from src.pfmp.small import is_zero
+from src.pfmp_richelbilderbeek.small import are_numbers
+from src.pfmp_richelbilderbeek.small import are_strings
+from src.pfmp_richelbilderbeek.small import check_are_numbers
+from src.pfmp_richelbilderbeek.small import check_different
+from src.pfmp_richelbilderbeek.small import check_equal
+from src.pfmp_richelbilderbeek.small import check_is_number
+from src.pfmp_richelbilderbeek.small import check_is_probability
+from src.pfmp_richelbilderbeek.small import check_is_string
+from src.pfmp_richelbilderbeek.small import divide_safely
+from src.pfmp_richelbilderbeek.small import is_dividable_by_three
+from src.pfmp_richelbilderbeek.small import is_even
+from src.pfmp_richelbilderbeek.small import is_number
+from src.pfmp_richelbilderbeek.small import is_odd
+from src.pfmp_richelbilderbeek.small import is_probability
+from src.pfmp_richelbilderbeek.small import is_string
+from src.pfmp_richelbilderbeek.small import is_zero
 
 
 
