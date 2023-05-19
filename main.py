@@ -1,5 +1,4 @@
 import cProfile
-
 from src.pfmp_richelbilderbeek.medium import get_datas # noqa: F401
 from src.pfmp_richelbilderbeek.medium import get_test_datas
 from src.pfmp_richelbilderbeek.medium import get_sorting_functions
@@ -18,3 +17,4 @@ if __name__ == "__main__":
         "datas = get_datas(data_lengths = [2, 4, 6, 8, 10]), "
         "functions = get_sorting_functions())"
     )
+
