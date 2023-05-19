@@ -25,6 +25,30 @@ class TestMedium(unittest.TestCase):
 
     def test_are_speed_measurements(self):
         self.assertIsNotNone(are_speed_measurements.__doc__)
+        self.assertTrue(are_speed_measurements(get_test_speed_measurements()))
+        self.assertFalse(are_speed_measurements(0.1))
+        self.assertFalse(are_speed_measurements( {"x": 1.0} ))
+        self.assertFalse(are_speed_measurements( {"x": 1.0, "y": 2.0, "z": 3.0} ))
+        nasty_data_1 = { 
+            "function_index": [0, 1, 234567], # Oops
+            "data_index": [0, 0], 
+            "runtime_speed_secs": [0.1, 0.2]
+        }
+        self.assertFalse(are_speed_measurements(nasty_data_1))
+        nasty_data_2 = { 
+            "function_index": [0, 1], 
+            "data_index": [0, 0, 123456789], # Oops
+            "runtime_speed_secs": [0.1, 0.2]
+        }
+        self.assertFalse(are_speed_measurements(nasty_data_2))
+        nasty_data_3 = { 
+            "function_index": [0, 1], 
+            "data_index": [0, 0], 
+            "runtime_speed_secs": [0.1, 0.2, 0.3456789] # Oops
+        }
+        self.assertFalse(are_speed_measurements(nasty_data_3))
+        
+
 
     def test_get_datas(self):
         self.assertIsNotNone(get_datas.__doc__)

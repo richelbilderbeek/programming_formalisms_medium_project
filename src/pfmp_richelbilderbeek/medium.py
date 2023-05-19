@@ -54,7 +54,14 @@ def are_speed_measurements(x):
     Determines if `x` is a table of speed measurements.
     Returns `True` if `x` is a table of speed measurements.
     """
-    True
+    if not isinstance(x, dict): return False
+    if (len(x) != 3): return False
+    these_keys = list(x.keys())
+    expected_keys = ["function_index", "data_index", "runtime_speed_secs"]
+    if (these_keys != expected_keys): return False
+    if (len(x["function_index"]) != len(x["data_index"])): return False
+    if (len(x["function_index"]) != len(x["runtime_speed_secs"])): return False
+    return True
 
 def get_datas(rng_seed = 42):
     """
