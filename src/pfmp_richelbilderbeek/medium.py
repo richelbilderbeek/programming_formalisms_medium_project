@@ -55,6 +55,17 @@ def are_functions(fs):
 def are_speed_measurements(x):
     """
     Determines if `x` is a table of speed measurements.
+
+    The table of speed measurements must be a dictionary.
+
+    Its three expected keys are:
+     * `function_name`
+     * `data_index`
+     * `runtime_speed_secs`
+    
+    Each key element is a list.
+    These three lists have an equal length.
+
     Returns `True` if `x` is a table of speed measurements.
     """
     if not isinstance(x, dict): 
@@ -62,12 +73,12 @@ def are_speed_measurements(x):
     if (len(x) != 3): 
         return False
     these_keys = list(x.keys())
-    expected_keys = ["function_index", "data_index", "runtime_speed_secs"]
+    expected_keys = ["function_name", "data_index", "runtime_speed_secs"]
     if (these_keys != expected_keys): 
         return False
-    if (len(x["function_index"]) != len(x["data_index"])): 
+    if (len(x["function_name"]) != len(x["data_index"])): 
         return False
-    if (len(x["function_index"]) != len(x["runtime_speed_secs"])): 
+    if (len(x["function_name"]) != len(x["runtime_speed_secs"])): 
         return False
     return True
 
@@ -120,7 +131,7 @@ def get_test_speed_measurements():
     Returns a collection of speed measurements, to be used in tests
     """
     return {
-        "function_index": [0, 1],
+        "function_name": ["silly_sort", "stupid_sort"],
         "data_index": [0, 1],
         "runtime_speed_secs": [0.1, 0.2]
     }
