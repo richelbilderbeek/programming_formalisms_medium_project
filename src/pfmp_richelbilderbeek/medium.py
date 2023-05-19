@@ -34,6 +34,17 @@ Name                          |Purpose
 These are all the simple functions of The Medium Project
 """
 
+def get_sorting_functions():
+    """
+    Get a list with all the sorting functions.
+    
+    Each sorting function is a pure function 
+    that takes 1 argument
+    and returns the sorted argument
+    """
+    # check_are_functions(functions)
+    return True
+
 def get_speed_measurements(functions, datas):
     """
     Measure how long the runtime is of each function,
@@ -51,5 +62,19 @@ def get_speed_measurements(functions, datas):
       3. The time in seconds the function took to process the data
     """
     # check_are_functions(functions)
+    return True
+
+def is_sorted(data):
+    """
+    Determines if `data` is sorted.
+    Returns `True` if the data is sorted
+    """
+    return data == sorted(data)
+
+def stupid_sort(data):
+    """
+    Sorts `data` in a stupid way.
+    Returns the `data` after sorting it.
+    """
     return True
 
