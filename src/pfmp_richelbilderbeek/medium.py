@@ -1,6 +1,7 @@
 from random import seed
 from random import shuffle
 from pandas import DataFrame
+from time import time
 
 '''
 Name                          |Purpose
@@ -60,7 +61,7 @@ def are_speed_measurements(x):
 
     Its three expected keys are:
      * `function_name`
-     * `data_index`
+     * `data_length`
      * `runtime_speed_secs`
     
     Each key element is a list.
@@ -73,10 +74,10 @@ def are_speed_measurements(x):
     if (len(x) != 3): 
         return False
     these_keys = list(x.keys())
-    expected_keys = ["function_name", "data_index", "runtime_speed_secs"]
+    expected_keys = ["function_name", "data_length", "runtime_speed_secs"]
     if (these_keys != expected_keys): 
         return False
-    if (len(x["function_name"]) != len(x["data_index"])): 
+    if (len(x["function_name"]) != len(x["data_length"])): 
         return False
     if (len(x["function_name"]) != len(x["runtime_speed_secs"])): 
         return False
@@ -124,7 +125,38 @@ def get_speed_measurements(functions, datas):
       2. The data index (first data has index zero)
       3. The time in seconds the function took to process the data
     """
-    return get_test_speed_measurements()
+    speed_measurements = {
+        "function_name": [],
+        "data_length": [],
+        "runtime_speed_secs": []
+    }
+    for f in functions:
+        for data in datas:
+            speed_measurements["data_length"].append(len(data))
+            speed_measurements["function_name"].append(f.__name__)
+            start = time()
+            f(data)
+            end = time()
+            t = end - start
+            speed_measurements["runtime_speed_secs"].append(t)
+
+    return speed_measurements
+
+def get_test_datas(rng_seed = 42):
+    """
+    Get a list of datasets (hence, the reduplicated/Gollumese plural)
+    
+    Each dataset is list of numbers, 
+    which can be used to illustrate sorting algorithms.
+    """
+    seed(rng_seed)
+    short_data = [x * x for x in range(0, 2)]
+    medium_data = [x * x for x in range(0, 3)]
+    long_data = [x * x for x in range(0, 4)]
+    shuffle(short_data)
+    shuffle(medium_data)
+    shuffle(long_data)
+    return [short_data, medium_data, long_data]
 
 def get_test_speed_measurements():
     """
@@ -132,7 +164,7 @@ def get_test_speed_measurements():
     """
     return {
         "function_name": ["silly_sort", "stupid_sort"],
-        "data_index": [0, 1],
+        "data_length": [0, 1],
         "runtime_speed_secs": [0.1, 0.2]
     }
 

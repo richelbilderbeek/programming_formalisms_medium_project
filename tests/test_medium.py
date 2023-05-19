@@ -7,6 +7,7 @@ from src.pfmp_richelbilderbeek.medium import are_functions
 from src.pfmp_richelbilderbeek.medium import get_datas
 from src.pfmp_richelbilderbeek.medium import get_sorting_functions
 from src.pfmp_richelbilderbeek.medium import get_speed_measurements
+from src.pfmp_richelbilderbeek.medium import get_test_datas
 from src.pfmp_richelbilderbeek.medium import get_test_speed_measurements
 from src.pfmp_richelbilderbeek.medium import is_function
 from src.pfmp_richelbilderbeek.medium import is_dict
@@ -35,19 +36,19 @@ class TestMedium(unittest.TestCase):
         self.assertFalse(are_speed_measurements( {"x": 1.0, "y": 2.0, "z": 3.0} ))
         nasty_data_1 = { 
             "function_index": [0, 1, 234567], # Oops
-            "data_index": [0, 0], 
+            "data_length": [0, 0], 
             "runtime_speed_secs": [0.1, 0.2]
         }
         self.assertFalse(are_speed_measurements(nasty_data_1))
         nasty_data_2 = { 
             "function_index": [0, 1], 
-            "data_index": [0, 0, 123456789], # Oops
+            "data_length": [0, 0, 123456789], # Oops
             "runtime_speed_secs": [0.1, 0.2]
         }
         self.assertFalse(are_speed_measurements(nasty_data_2))
         nasty_data_3 = { 
             "function_index": [0, 1], 
-            "data_index": [0, 0], 
+            "data_length": [0, 0], 
             "runtime_speed_secs": [0.1, 0.2, 0.3456789] # Oops
         }
         self.assertFalse(are_speed_measurements(nasty_data_3))
@@ -65,10 +66,16 @@ class TestMedium(unittest.TestCase):
     def test_get_speed_measurements(self):
         self.assertIsNotNone(get_speed_measurements.__doc__)
         speed_measurements = get_speed_measurements(
-            datas = get_datas(), 
+            datas = get_test_datas(), 
             functions = get_sorting_functions()
         )
         self.assertTrue(are_speed_measurements(speed_measurements))
+
+    def test_get_test_datas(self):
+        self.assertIsNotNone(get_test_datas.__doc__)
+        self.assertTrue(is_list(get_test_datas()))
+        self.assertEqual(get_test_datas(42), get_test_datas(42))
+        self.assertNotEqual(get_test_datas(42), get_test_datas(43))
 
     def test_get_test_speed_measurements(self):
         self.assertIsNotNone(get_test_speed_measurements.__doc__)
