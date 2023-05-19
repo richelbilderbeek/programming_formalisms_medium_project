@@ -158,10 +158,7 @@ def save_dict(x, csv_filename):
     Saves the dictionary `x` to a file named `csv_filename`
     """
     assert is_dict(x)
-    df = DataFrame.from_dict(
-        x, 
-        orient = 'index'
-    )
+    df = DataFrame.from_dict(x)
     df.to_csv(csv_filename, index = False)
     pass
 
