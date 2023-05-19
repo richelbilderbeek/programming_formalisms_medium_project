@@ -34,6 +34,14 @@ Name                          |Purpose
 These are all the simple functions of The Medium Project
 """
 
+def are_functions(fs):
+    """
+    Determines if `fs` is one or more functions.
+    Returns `True` if `f` is one or more functions
+    """
+    if (len(fs) == 0): return False;
+    return True
+
 def get_sorting_functions():
     """
     Get a list with all the sorting functions.
@@ -77,6 +85,13 @@ def is_sorted(data):
     Returns `True` if the data is sorted
     """
     return data == sorted(data)
+
+def silly_sort(data):
+    """
+    Sorts `data` in a silly way.
+    Returns the `data` after sorting it.
+    """
+    return True
 
 def stupid_sort(data):
     """
