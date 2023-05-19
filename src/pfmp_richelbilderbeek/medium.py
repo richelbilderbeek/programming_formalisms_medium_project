@@ -64,6 +64,13 @@ def get_speed_measurements(functions, datas):
     # check_are_functions(functions)
     return True
 
+def is_function(f):
+    """
+    Determines if `f` is a function.
+    Returns `True` if `f` is a function
+    """
+    return hasattr(f, '__call__')
+
 def is_sorted(data):
     """
     Determines if `data` is sorted.
