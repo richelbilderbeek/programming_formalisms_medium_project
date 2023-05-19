@@ -83,7 +83,7 @@ def are_speed_measurements(x):
         return False
     return True
 
-def get_datas(rng_seed = 42):
+def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]):
     """
     Get a list of datasets (hence, the reduplicated/Gollumese plural)
     
@@ -91,13 +91,12 @@ def get_datas(rng_seed = 42):
     which can be used to illustrate sorting algorithms.
     """
     seed(rng_seed)
-    short_data = [x * x for x in range(0, 9)]
-    medium_data = [x * x for x in range(0, 99)]
-    long_data = [x * x for x in range(0, 999)]
-    shuffle(short_data)
-    shuffle(medium_data)
-    shuffle(long_data)
-    return [short_data, medium_data, long_data]
+    datas = []
+    for data_length in data_lengths:
+        data = [x * x for x in range(0, data_length)]
+        shuffle(data)
+        datas.append(data)
+    return datas
 
 def get_sorting_functions():
     """
@@ -149,14 +148,7 @@ def get_test_datas(rng_seed = 42):
     Each dataset is list of numbers, 
     which can be used to illustrate sorting algorithms.
     """
-    seed(rng_seed)
-    short_data = [x * x for x in range(0, 2)]
-    medium_data = [x * x for x in range(0, 3)]
-    long_data = [x * x for x in range(0, 4)]
-    shuffle(short_data)
-    shuffle(medium_data)
-    shuffle(long_data)
-    return [short_data, medium_data, long_data]
+    return get_datas(rng_seed = rng_seed, data_lengths = [2, 3, 4])
 
 def get_test_speed_measurements():
     """
