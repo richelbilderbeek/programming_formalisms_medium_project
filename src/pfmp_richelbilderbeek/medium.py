@@ -42,8 +42,10 @@ def are_functions(fs):
     Determines if `fs` is one or more functions.
     Returns `True` if `f` is one or more functions
     """
-    if (not is_list(fs)): return False
-    if (len(fs) == 0): return False
+    if (not is_list(fs)): 
+        return False
+    if (len(fs) == 0): 
+        return False
     for i in range(len(fs)):
         if not is_function(fs[i]):
             return False
@@ -54,13 +56,18 @@ def are_speed_measurements(x):
     Determines if `x` is a table of speed measurements.
     Returns `True` if `x` is a table of speed measurements.
     """
-    if not isinstance(x, dict): return False
-    if (len(x) != 3): return False
+    if not isinstance(x, dict): 
+        return False
+    if (len(x) != 3): 
+        return False
     these_keys = list(x.keys())
     expected_keys = ["function_index", "data_index", "runtime_speed_secs"]
-    if (these_keys != expected_keys): return False
-    if (len(x["function_index"]) != len(x["data_index"])): return False
-    if (len(x["function_index"]) != len(x["runtime_speed_secs"])): return False
+    if (these_keys != expected_keys): 
+        return False
+    if (len(x["function_index"]) != len(x["data_index"])): 
+        return False
+    if (len(x["function_index"]) != len(x["runtime_speed_secs"])): 
+        return False
     return True
 
 def get_datas(rng_seed = 42):
@@ -155,6 +162,7 @@ def stupid_sort(data):
     Returns the `data` after sorting it.
     """
     while True:
-        if (is_sorted(data)): return data
+        if (is_sorted(data)): 
+            return data
         shuffle(data)
 
