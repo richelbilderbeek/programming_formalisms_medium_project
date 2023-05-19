@@ -1,5 +1,6 @@
 from random import seed
 from random import shuffle
+from pandas import DataFrame
 
 '''
 Name                          |Purpose
@@ -124,6 +125,13 @@ def get_test_speed_measurements():
         "runtime_speed_secs": [0.1, 0.2]
     }
 
+def is_dict(x):
+    """
+    Determines if `x` is a dict.
+    Returns `True` if `x` is a dict.
+    """
+    return type(x) == dict
+
 def is_function(f):
     """
     Determines if `f` is a function.
@@ -144,6 +152,26 @@ def is_sorted(data):
     Returns `True` if the data is sorted
     """
     return data == sorted(data)
+
+def save_dict(x, csv_filename):
+    """
+    Saves the dictionary `x` to a file named `csv_filename`
+    """
+    assert is_dict(x)
+    df = DataFrame.from_dict(
+        x, 
+        orient = 'index'
+    )
+    df.to_csv(csv_filename, index = False)
+    pass
+
+def save_speed_measurements(speed_measurements, csv_filename):
+    """
+    Saves the `speed_measurements` to a file named `csv_filename`
+    """
+    assert are_speed_measurements(speed_measurements)
+    pass
+
 
 def silly_sort(data):
     """

@@ -1,13 +1,11 @@
-from src.pfmp_richelbilderbeek.small import is_zero
+from src.pfmp_richelbilderbeek.medium import get_datas
+from src.pfmp_richelbilderbeek.medium import get_sorting_functions
+from src.pfmp_richelbilderbeek.medium import get_speed_measurements
+from src.pfmp_richelbilderbeek.medium import save_speed_measurements
 
 if __name__ == "__main__":
-    print("Show the documentation:")
-    print(is_zero.__doc__)
-
-    print("Show how an exception looks like:")
-    try:
-        is_zero("should be a number")
-    except TypeError as e:
-        print(e)
-
-    print("Done showing off this package")
+    speed_measurements = get_speed_measurements(
+        datas = get_datas(), 
+        functions = get_sorting_functions()
+    )
+    # save_speed_measurements(speed_measurements, "speeds.csv")

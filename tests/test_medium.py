@@ -1,3 +1,4 @@
+import os.path
 import unittest
 
 
@@ -8,8 +9,11 @@ from src.pfmp_richelbilderbeek.medium import get_sorting_functions
 from src.pfmp_richelbilderbeek.medium import get_speed_measurements
 from src.pfmp_richelbilderbeek.medium import get_test_speed_measurements
 from src.pfmp_richelbilderbeek.medium import is_function
+from src.pfmp_richelbilderbeek.medium import is_dict
 from src.pfmp_richelbilderbeek.medium import is_list
 from src.pfmp_richelbilderbeek.medium import is_sorted
+from src.pfmp_richelbilderbeek.medium import save_dict
+from src.pfmp_richelbilderbeek.medium import save_speed_measurements
 from src.pfmp_richelbilderbeek.medium import silly_sort
 from src.pfmp_richelbilderbeek.medium import stupid_sort
 
@@ -66,13 +70,17 @@ class TestMedium(unittest.TestCase):
         )
         self.assertTrue(are_speed_measurements(speed_measurements))
 
-        
-
     def test_get_test_speed_measurements(self):
         self.assertIsNotNone(get_test_speed_measurements.__doc__)
         self.assertTrue(
             isinstance(get_test_speed_measurements(), dict)
         )
+
+    def test_is_dict(self):
+        self.assertIsNotNone(is_dict.__doc__)
+        self.assertTrue(is_dict({"X": 3.14}))
+        self.assertFalse(is_dict(3.14))
+        self.assertFalse(is_dict([3.14]))
 
     def test_is_function(self):
         self.assertIsNotNone(is_function.__doc__)
@@ -81,6 +89,7 @@ class TestMedium(unittest.TestCase):
 
     def test_is_list(self):
         self.assertIsNotNone(is_list.__doc__)
+        self.assertFalse(is_list(42))
 
 
     def test_is_sorted(self):
@@ -89,6 +98,27 @@ class TestMedium(unittest.TestCase):
         self.assertTrue(is_sorted([1]))
         self.assertFalse(is_sorted([2, 1]))
         self.assertFalse(is_sorted(get_datas()[0]))
+
+    def test_save_dict(self):
+        self.assertIsNotNone(save_dict.__doc__)
+        csv_filename = "temp_save_dict.csv"
+        save_dict(
+            x = { "X": [1, 2, 3], "Y": [4, 5, 6]},
+            csv_filename = csv_filename
+        )
+        self.assertTrue(os.path.isfile(csv_filename))
+
+    def test_save_speed_measurements(self):
+        self.assertIsNotNone(save_speed_measurements.__doc__)
+        if 1 == 2:
+            csv_filename = "temp_speeds.csv"
+            save_speed_measurements(
+                speed_measurements = get_test_speed_measurements(),
+                csv_filename = csv_filename
+            )
+            self.assertTrue(os.path.isfile(csv_filename))
+        
+
 
     def test_silly_sort(self):
         self.assertIsNotNone(silly_sort.__doc__)
