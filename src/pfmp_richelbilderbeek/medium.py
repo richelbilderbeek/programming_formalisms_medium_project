@@ -170,8 +170,10 @@ def save_speed_measurements(speed_measurements, csv_filename):
     Saves the `speed_measurements` to a file named `csv_filename`
     """
     assert are_speed_measurements(speed_measurements)
-    pass
-
+    save_dict(
+        x = speed_measurements, 
+        csv_filename = csv_filename
+    )
 
 def silly_sort(data):
     """

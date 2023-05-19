@@ -102,21 +102,29 @@ class TestMedium(unittest.TestCase):
     def test_save_dict(self):
         self.assertIsNotNone(save_dict.__doc__)
         csv_filename = "temp_save_dict.csv"
+        if (os.path.isfile(csv_filename)):
+            os.remove(csv_filename)
+        self.assertFalse(os.path.isfile(csv_filename))
+        
         save_dict(
             x = { "X": [1, 2, 3], "Y": [4, 5, 6]},
             csv_filename = csv_filename
         )
         self.assertTrue(os.path.isfile(csv_filename))
+        os.remove(csv_filename)
 
     def test_save_speed_measurements(self):
         self.assertIsNotNone(save_speed_measurements.__doc__)
-        if 1 == 2:
-            csv_filename = "temp_speeds.csv"
-            save_speed_measurements(
-                speed_measurements = get_test_speed_measurements(),
-                csv_filename = csv_filename
-            )
-            self.assertTrue(os.path.isfile(csv_filename))
+        csv_filename = "temp_save_speed_measurements.csv"
+        if (os.path.isfile(csv_filename)):
+            os.remove(csv_filename)
+        self.assertFalse(os.path.isfile(csv_filename))
+        save_speed_measurements(
+            speed_measurements = get_test_speed_measurements(),
+            csv_filename = csv_filename
+        )
+        self.assertTrue(os.path.isfile(csv_filename))
+        os.remove(csv_filename)
         
 
 

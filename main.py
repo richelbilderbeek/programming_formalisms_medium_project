@@ -8,4 +8,4 @@ if __name__ == "__main__":
         datas = get_datas(), 
         functions = get_sorting_functions()
     )
-    # save_speed_measurements(speed_measurements, "speeds.csv")
+    save_speed_measurements(speed_measurements, "speeds.csv")
