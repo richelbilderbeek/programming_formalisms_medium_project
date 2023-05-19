@@ -24,6 +24,8 @@ class TestMedium(unittest.TestCase):
     def test_get_datas(self):
         self.assertIsNotNone(get_datas.__doc__)
         self.assertTrue(is_list(get_datas()))
+        self.assertEqual(get_datas(42), get_datas(42))
+        self.assertNotEqual(get_datas(42), get_datas(43))
 
     def test_get_sorting_functions(self):
         self.assertIsNotNone(get_sorting_functions.__doc__)

@@ -1,3 +1,4 @@
+from random import seed
 from random import shuffle
 
 '''
@@ -48,13 +49,14 @@ def are_functions(fs):
             return False
     return True
 
-def get_datas():
+def get_datas(rng_seed = 42):
     """
     Get a list of datasets (hence, the reduplicated/Gollumese plural)
     
     Each dataset is list of numbers, 
     which can be used to illustrate sorting algorithms.
     """
+    seed(rng_seed)
     short_data = [x * x for x in range(0, 9)]
     medium_data = [x * x for x in range(0, 99)]
     long_data = [x * x for x in range(0, 999)]
