@@ -16,6 +16,9 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@master
 
+    - name: Install pandas
+      run: pip install pandas
+
     - name: Generate coverage report
       run: |
         pip install pytest
