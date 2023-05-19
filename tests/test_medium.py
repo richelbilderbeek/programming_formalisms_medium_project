@@ -1,10 +1,12 @@
 import unittest
 
 
+from src.pfmp_richelbilderbeek.medium import are_speed_measurements
 from src.pfmp_richelbilderbeek.medium import are_functions
 from src.pfmp_richelbilderbeek.medium import get_datas
 from src.pfmp_richelbilderbeek.medium import get_sorting_functions
 from src.pfmp_richelbilderbeek.medium import get_speed_measurements
+from src.pfmp_richelbilderbeek.medium import get_test_speed_measurements
 from src.pfmp_richelbilderbeek.medium import is_function
 from src.pfmp_richelbilderbeek.medium import is_list
 from src.pfmp_richelbilderbeek.medium import is_sorted
@@ -21,6 +23,9 @@ class TestMedium(unittest.TestCase):
         self.assertFalse(are_functions(3.14))
         self.assertFalse(are_functions("Hello"))
 
+    def test_are_speed_measurements(self):
+        self.assertIsNotNone(are_speed_measurements.__doc__)
+
     def test_get_datas(self):
         self.assertIsNotNone(get_datas.__doc__)
         self.assertTrue(is_list(get_datas()))
@@ -34,6 +39,12 @@ class TestMedium(unittest.TestCase):
     def test_get_speed_measurements(self):
         self.assertIsNotNone(get_speed_measurements.__doc__)
 
+    def test_get_test_speed_measurements(self):
+        self.assertIsNotNone(get_test_speed_measurements.__doc__)
+        self.assertTrue(
+            isinstance(get_test_speed_measurements(), dict)
+        )
+
     def test_is_function(self):
         self.assertIsNotNone(is_function.__doc__)
         self.assertTrue(is_function(is_function))
@@ -42,15 +53,26 @@ class TestMedium(unittest.TestCase):
     def test_is_list(self):
         self.assertIsNotNone(is_list.__doc__)
 
+
     def test_is_sorted(self):
         self.assertIsNotNone(is_sorted.__doc__)
         self.assertTrue(is_sorted([1, 2]))
         self.assertTrue(is_sorted([1]))
         self.assertFalse(is_sorted([2, 1]))
+        self.assertFalse(is_sorted(get_datas()[0]))
 
     def test_silly_sort(self):
         self.assertIsNotNone(silly_sort.__doc__)
+        data = get_datas()[0]
+        self.assertFalse(is_sorted(data))
+        sorted_data = silly_sort(data)
+        self.assertTrue(is_sorted(sorted_data))
+
 
     def test_stupid_sort(self):
         self.assertIsNotNone(stupid_sort.__doc__)
+        data = get_datas()[0]
+        self.assertFalse(is_sorted(data))
+        sorted_data = stupid_sort(data)
+        self.assertTrue(is_sorted(sorted_data))
 

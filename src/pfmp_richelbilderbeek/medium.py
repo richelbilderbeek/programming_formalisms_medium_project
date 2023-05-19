@@ -49,6 +49,13 @@ def are_functions(fs):
             return False
     return True
 
+def are_speed_measurements(x):
+    """
+    Determines if `x` is a table of speed measurements.
+    Returns `True` if `x` is a table of speed measurements.
+    """
+    True
+
 def get_datas(rng_seed = 42):
     """
     Get a list of datasets (hence, the reduplicated/Gollumese plural)
@@ -94,6 +101,16 @@ def get_speed_measurements(functions, datas):
     # check_are_functions(functions)
     return True
 
+def get_test_speed_measurements():
+    """
+    Returns a collection of speed measurements, to be used in tests
+    """
+    return {
+        "function_index": [0, 1],
+        "data_index": [0, 1],
+        "runtime_speed_secs": [0.1, 0.2]
+    }
+
 def is_function(f):
     """
     Determines if `f` is a function.
@@ -120,12 +137,18 @@ def silly_sort(data):
     Sorts `data` in a silly way.
     Returns the `data` after sorting it.
     """
-    return True
+    sorted_data = stupid_sort(data)
+
+    # Just to be super sure it is sorted :-)
+    doubly_sorted_data = sorted(sorted_data)
+    return doubly_sorted_data
 
 def stupid_sort(data):
     """
     Sorts `data` in a stupid way.
     Returns the `data` after sorting it.
     """
-    return True
+    while True:
+        if (is_sorted(data)): return data
+        shuffle(data)
 
