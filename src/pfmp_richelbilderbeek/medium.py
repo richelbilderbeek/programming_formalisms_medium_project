@@ -9,7 +9,7 @@ Name                          |Purpose
 `bubble_sort(x)`              |Returns the sorted elements of `x` using bubble sort
 `block_sort(x)`               |Returns the sorted elements of `x` using block sort
 `cube_sort(x)`                |Returns the sorted elements of `x` using cube sort
-`cocktail_shaker_sort(x)`     |Returns the sorted elements of `x` using cocktail shaker sort
+`cocktail_shaker_sort(x)`     
 `comb_sort(x)`                |Returns the sorted elements of `x` using comb sort
 `cycle_sort(x)`               |Returns the sorted elements of `x` using cycle sort
 `exchange_sort(x)`            |Returns the sorted elements of `x` using exchange sort
@@ -17,7 +17,6 @@ Name                          |Purpose
 `heap_sort(x)`                |Returns the sorted elements of `x` using heap sort
 `intro_sort(x)`               |Returns the sorted elements of `x` using intro sort
 `insertion_sort(x)`           |Returns the sorted elements of `x` using insertion sort
-`is_sorted(x)`                |Returns `True` if the elements of `x` are in ascending order
 `is_sorting_method(m)`        |Returns `True` if `m` is a sorting method
 `library_sort(x)`             |Returns the sorted elements of `x` using library sort
 `merge_sort(x)`               |Returns the sorted elements of `x` using merge sort
