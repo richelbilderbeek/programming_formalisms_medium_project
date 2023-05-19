@@ -20,3 +20,6 @@ classifiers = [
 [project.urls]
 "Homepage" = "https://github.com/richelbilderbeek/programming_formalisms_medium_project"
 "Bug Tracker" = "https://github.com/richelbilderbeek/programming_formalisms_medium_project/issues"
+
+[tool.ruff]
+    select = ["ALL"]
