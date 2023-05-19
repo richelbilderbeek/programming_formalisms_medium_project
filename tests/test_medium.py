@@ -14,10 +14,14 @@ class TestMedium(unittest.TestCase):
     def test_are_functions(self):
         self.assertIsNotNone(are_functions.__doc__)
         self.assertTrue(are_functions( [silly_sort, stupid_sort]))
-        self.assertFalse(are_functions( []))
+        self.assertTrue(are_functions( [silly_sort]))
+        self.assertFalse(are_functions( [] ))
+        self.assertFalse(are_functions(3.14))
+        self.assertFalse(are_functions("Hello"))
 
     def test_get_sorting_functions(self):
         self.assertIsNotNone(get_sorting_functions.__doc__)
+        self.assertTrue(are_functions(get_sorting_functions()))
 
     def test_get_speed_measurements(self):
         self.assertIsNotNone(get_speed_measurements.__doc__)

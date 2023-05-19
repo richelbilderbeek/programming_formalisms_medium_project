@@ -39,7 +39,11 @@ def are_functions(fs):
     Determines if `fs` is one or more functions.
     Returns `True` if `f` is one or more functions
     """
-    if (len(fs) == 0): return False;
+    if (not type(fs) == list): return False
+    if (len(fs) == 0): return False
+    for i in range(len(fs)):
+        if not is_function(fs[i]):
+            return False
     return True
 
 def get_sorting_functions():
@@ -50,8 +54,7 @@ def get_sorting_functions():
     that takes 1 argument
     and returns the sorted argument
     """
-    # check_are_functions(functions)
-    return True
+    return [silly_sort, stupid_sort]
 
 def get_speed_measurements(functions, datas):
     """
