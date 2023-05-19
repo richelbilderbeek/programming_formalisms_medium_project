@@ -1,3 +1,5 @@
+from random import shuffle
+
 '''
 Name                          |Purpose
 ------------------------------|--------------------------------------------------------
@@ -39,12 +41,27 @@ def are_functions(fs):
     Determines if `fs` is one or more functions.
     Returns `True` if `f` is one or more functions
     """
-    if (not type(fs) == list): return False
+    if (not is_list(fs)): return False
     if (len(fs) == 0): return False
     for i in range(len(fs)):
         if not is_function(fs[i]):
             return False
     return True
+
+def get_datas():
+    """
+    Get a list of datasets (hence, the reduplicated/Gollumese plural)
+    
+    Each dataset is list of numbers, 
+    which can be used to illustrate sorting algorithms.
+    """
+    short_data = [x * x for x in range(0, 9)]
+    medium_data = [x * x for x in range(0, 99)]
+    long_data = [x * x for x in range(0, 999)]
+    shuffle(short_data)
+    shuffle(medium_data)
+    shuffle(long_data)
+    return [short_data, medium_data, long_data]
 
 def get_sorting_functions():
     """
@@ -81,6 +98,13 @@ def is_function(f):
     Returns `True` if `f` is a function
     """
     return hasattr(f, '__call__')
+
+def is_list(x):
+    """
+    Determines if `x` is a list.
+    Returns `True` if `x` is a list.
+    """
+    return type(x) == list
 
 def is_sorted(data):
     """

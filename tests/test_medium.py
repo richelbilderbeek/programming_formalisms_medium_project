@@ -2,9 +2,11 @@ import unittest
 
 
 from src.pfmp_richelbilderbeek.medium import are_functions
+from src.pfmp_richelbilderbeek.medium import get_datas
 from src.pfmp_richelbilderbeek.medium import get_sorting_functions
 from src.pfmp_richelbilderbeek.medium import get_speed_measurements
 from src.pfmp_richelbilderbeek.medium import is_function
+from src.pfmp_richelbilderbeek.medium import is_list
 from src.pfmp_richelbilderbeek.medium import is_sorted
 from src.pfmp_richelbilderbeek.medium import silly_sort
 from src.pfmp_richelbilderbeek.medium import stupid_sort
@@ -19,6 +21,10 @@ class TestMedium(unittest.TestCase):
         self.assertFalse(are_functions(3.14))
         self.assertFalse(are_functions("Hello"))
 
+    def test_get_datas(self):
+        self.assertIsNotNone(get_datas.__doc__)
+        self.assertTrue(is_list(get_datas()))
+
     def test_get_sorting_functions(self):
         self.assertIsNotNone(get_sorting_functions.__doc__)
         self.assertTrue(are_functions(get_sorting_functions()))
@@ -30,6 +36,9 @@ class TestMedium(unittest.TestCase):
         self.assertIsNotNone(is_function.__doc__)
         self.assertTrue(is_function(is_function))
         self.assertFalse(is_function(42))
+
+    def test_is_list(self):
+        self.assertIsNotNone(is_list.__doc__)
 
     def test_is_sorted(self):
         self.assertIsNotNone(is_sorted.__doc__)
