@@ -105,8 +105,7 @@ def get_speed_measurements(functions, datas):
       2. The data index (first data has index zero)
       3. The time in seconds the function took to process the data
     """
-    # check_are_functions(functions)
-    return True
+    return get_test_speed_measurements()
 
 def get_test_speed_measurements():
     """

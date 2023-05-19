@@ -47,8 +47,6 @@ class TestMedium(unittest.TestCase):
             "runtime_speed_secs": [0.1, 0.2, 0.3456789] # Oops
         }
         self.assertFalse(are_speed_measurements(nasty_data_3))
-        
-
 
     def test_get_datas(self):
         self.assertIsNotNone(get_datas.__doc__)
@@ -62,6 +60,13 @@ class TestMedium(unittest.TestCase):
 
     def test_get_speed_measurements(self):
         self.assertIsNotNone(get_speed_measurements.__doc__)
+        speed_measurements = get_speed_measurements(
+            datas = get_datas(), 
+            functions = get_sorting_functions()
+        )
+        self.assertTrue(are_speed_measurements(speed_measurements))
+
+        
 
     def test_get_test_speed_measurements(self):
         self.assertIsNotNone(get_test_speed_measurements.__doc__)
