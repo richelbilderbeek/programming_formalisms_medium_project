@@ -1,6 +1,6 @@
 import os.path
-from pathlib import Path
 import unittest
+from pathlib import Path
 
 from src.pfmp_richelbilderbeek.medium import (
     are_functions,
@@ -19,6 +19,7 @@ from src.pfmp_richelbilderbeek.medium import (
     silly_sort,
     stupid_sort,
 )
+
 
 class TestMedium(unittest.TestCase): # noqa: D101
 
