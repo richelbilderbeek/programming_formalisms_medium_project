@@ -124,8 +124,6 @@ class TestMedium(unittest.TestCase): # noqa: D101
     def test_save_speed_measurements(self): # noqa: D102
         self.assertIsNotNone(save_speed_measurements.__doc__)
         csv_filename = "temp_save_speed_measurements.csv"
-        if (os.path.isfile(csv_filename)):
-            os.remove(csv_filename)
         self.assertFalse(os.path.isfile(csv_filename))
         save_speed_measurements(
             speed_measurements = get_test_speed_measurements(),
