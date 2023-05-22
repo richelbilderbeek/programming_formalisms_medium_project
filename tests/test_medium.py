@@ -1,7 +1,6 @@
 """Test the functions in src.pfmp_richelbilderbeek.medium."""
 import os.path
 import unittest
-from pathlib import Path
 
 from src.pfmp_richelbilderbeek.medium import (
     are_functions,
@@ -133,7 +132,7 @@ class TestMedium(unittest.TestCase): # noqa: D101
             csv_filename = csv_filename,
         )
         self.assertTrue(os.path.isfile(csv_filename))
-        Path.unlink(csv_filename)
+        os.remove(csv_filename)
 
 
 
