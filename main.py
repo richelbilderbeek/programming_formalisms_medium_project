@@ -1,3 +1,4 @@
+"""Profile the functions of The Small Project and The Medium Project."""
 import cProfile
 
 from src.pfmp_richelbilderbeek.medium import (

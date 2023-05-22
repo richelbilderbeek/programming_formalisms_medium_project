@@ -23,5 +23,5 @@ classifiers = [
 
 [tool.ruff]
     select = ["ALL"]
-    ignore = ["ANN", "PT", "PTH"]
+    ignore = ["ANN", "PT", "PTH", "D211", "D213"]
 

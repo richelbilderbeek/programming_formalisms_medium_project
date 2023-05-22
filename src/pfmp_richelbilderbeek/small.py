@@ -2,6 +2,7 @@
 
 def are_numbers(x):
     """Determine if `x` is one or more numbers.
+
     Numbers can be integer or floating point.
 
     Returns `True` if `x` is one or more numbers.
@@ -25,6 +26,7 @@ def are_strings(x):
 
 def check_are_numbers(x):
     """Determine if `x` is one or more numbers.
+
     If `x` is not one or more numbers, a `RuntimeError` is raised.
 
     Returns nothing.
@@ -68,6 +70,7 @@ def check_equal(a, b):
 
 def check_is_number(x):
     """Determine if `x` is a number.
+
     If `x` is not a number, a `RuntimeError` is raised.
 
     Returns nothing.
@@ -81,6 +84,7 @@ def check_is_number(x):
 
 def check_is_probability(x):
     """Determine if `x` is a probability.
+
     If `x` is not a probability, a `RuntimeError` is raised.
 
     Returns nothing.
@@ -95,6 +99,7 @@ def check_is_probability(x):
 
 def check_is_string(x):
     """Determine if `x` is a string.
+
     If `x` is not a string, a `RuntimeError` is raised.
 
     Returns nothing.
@@ -108,12 +113,13 @@ def check_is_string(x):
 
 def divide_safely(a, b):
     """Divide `a` by `b`.
+
     If `a` or `b` are not a floating point number, a `TypeError` is raised.
     If `b` is `0.0`, a `RuntimeError` is raised.
 
     Returns `a` divided by `b`
     """
-    if b == 0.0:
+    if b == 0.0: # noqa: PLR2004: this is not a magic value
         msg = "'b' must not be zero"
         raise RuntimeError(
             msg,
@@ -122,6 +128,7 @@ def divide_safely(a, b):
 
 def is_dividable_by_three(x):
     """Determine if `x` is dividable by three.
+
     If `x` is not an integer number, a `TypeError` is raised.
 
     Returns `True` if `x` is dividable by three
@@ -135,6 +142,7 @@ def is_dividable_by_three(x):
 
 def is_even(x):
     """Determine if `x` is even.
+
     If `x` is not an integer number, a `TypeError` is raised.
 
     Returns `True` if `x` is even
@@ -147,7 +155,9 @@ def is_even(x):
     return x % 2 == 0
 
 def is_number(x):
-    """Determine if `x` is one number,
+    """Determine if `x` is one number.
+
+    Determine if `x` is one number,
     for example, '42' or '3.14.
 
     Returns `True` if `x` is one number
@@ -156,6 +166,7 @@ def is_number(x):
 
 def is_odd(x):
     """Determine if `x` is odd.
+
     If `x` is not an integer number, a `TypeError` is raised.
 
     Returns `True` if `x` is odd
@@ -163,7 +174,9 @@ def is_odd(x):
     return not is_even(x)
 
 def is_probability(x):
-    """Determine if `x` is a probability,
+    """Determine if `x` is a probability.
+
+    Determine if `x` is a probability,
     i.e. a value between 0.0 and 1.0, including both 0.0 and 1.0.
     If `x` is not a floating point number, a `TypeError` is raised.
 
@@ -175,7 +188,7 @@ def is_probability(x):
             msg,
             "Actual type of 'number': ", type(x),
         )
-    return x >= 0.0 and x <= 1.0
+    return x >= 0.0 and x <= 1.0 # noqa: PLR2004: these are not magic values
 
 def is_string(x):
     """Determine if `x` is one string.
@@ -186,6 +199,7 @@ def is_string(x):
 
 def is_zero(x):
     """Determine if `x` is zero.
+
     If `x` is not a number, a `TypeError` is raised.
 
     Returns `True` if `x` is zero

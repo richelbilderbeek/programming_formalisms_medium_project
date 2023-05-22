@@ -1,3 +1,4 @@
+"""The functions from The Medium Project."""
 from random import seed, shuffle
 from time import time
 
@@ -39,7 +40,8 @@ These are all the simple functions of The Medium Project
 """
 
 def are_functions(fs):
-    """Determines if `fs` is one or more functions.
+    """Determine if `fs` is one or more functions.
+
     Returns `True` if `f` is one or more functions.
     """
     if (not is_list(fs)):
@@ -49,7 +51,7 @@ def are_functions(fs):
     return all(is_function(fs[i]) for i in range(len(fs)))
 
 def are_speed_measurements(x):
-    """Determines if `x` is a table of speed measurements.
+    """Determine if `x` is a table of speed measurements.
 
     The table of speed measurements must be a dictionary.
 
@@ -65,7 +67,8 @@ def are_speed_measurements(x):
     """
     if not isinstance(x, dict):
         return False
-    if (len(x) != 3):
+    num_cols = 3
+    if (len(x) != num_cols):
         return False
     these_keys = list(x.keys())
     expected_keys = ["function_name", "data_length", "runtime_speed_secs"]
@@ -77,7 +80,7 @@ def are_speed_measurements(x):
         return False
     return True
 
-def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]):
+def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]): # noqa: B006
     """Get a list of datasets (hence, the reduplicated/Gollumese plural).
 
     Each dataset is list of numbers,
@@ -101,14 +104,11 @@ def get_sorting_functions():
     return [silly_sort, stupid_sort]
 
 def get_speed_measurements(functions, datas):
-    """Measure how long the runtime is of each function,
-    per each data.
+    """Measure how long the runtime is of each function per each data.
 
-    Parameters
-    ----------
-    `functions`: two or more functions
+    param functions functions: two or more functions
         that can work on an element of `datas`
-    `datas`: one or more sets of data (hence, the
+    param list datas: one or more sets of data (hence, the
         reduplicated/Gollumese plural)
 
     Returns a dict with three columns:
@@ -142,7 +142,7 @@ def get_test_datas(rng_seed = 42):
     return get_datas(rng_seed = rng_seed, data_lengths = [2, 3, 4])
 
 def get_test_speed_measurements():
-    """Returns a collection of speed measurements, to be used in tests."""
+    """Return a collection of speed measurements, to be used in tests."""
     return {
         "function_name": ["silly_sort", "stupid_sort"],
         "data_length": [0, 1],
@@ -150,39 +150,45 @@ def get_test_speed_measurements():
     }
 
 def is_dict(x):
-    """Determines if `x` is a dict.
+    """Determine if `x` is a dict.
+
     Returns `True` if `x` is a dict.
     """
     return type(x) == dict
 
 def is_function(f):
-    """Determines if `f` is a function.
+    """Determine if `f` is a function.
+
     Returns `True` if `f` is a function.
     """
-    return hasattr(f, "__call__")
+    return callable(f)
 
 def is_list(x):
-    """Determines if `x` is a list.
+    """Determine if `x` is a list.
+
     Returns `True` if `x` is a list.
     """
     return type(x) == list
 
 def is_sorted(data):
-    """Determines if `data` is sorted.
+    """Determine if `data` is sorted.
+
     Returns `True` if the data is sorted.
     """
     return data == sorted(data)
 
 def save_dict(x, csv_filename):
-    """Saves the dictionary `x` to a file named `csv_filename`."""
-    assert is_dict(x)
-    df = DataFrame.from_dict(x)
-    df.to_csv(csv_filename, index = False)
+    """Save the dictionary `x` to a file named `csv_filename`."""
+    # should fail in debug mode only
+    assert is_dict(x) # noqa: S101
+    data_frame = DataFrame.from_dict(x)
+    data_frame.to_csv(csv_filename, index = False)
     pass
 
 def save_speed_measurements(speed_measurements, csv_filename):
-    """Saves the `speed_measurements` to a file named `csv_filename`."""
-    assert are_speed_measurements(speed_measurements)
+    """Save the `speed_measurements` to a file named `csv_filename`."""
+    # should fail in debug mode only
+    assert are_speed_measurements(speed_measurements) # noqa: S101
     save_dict(
         x = speed_measurements,
         csv_filename = csv_filename,
@@ -190,16 +196,17 @@ def save_speed_measurements(speed_measurements, csv_filename):
 
 def silly_sort(data):
     """Sorts `data` in a silly way.
+
     Returns the `data` after sorting it.
     """
     sorted_data = stupid_sort(data)
 
     # Just to be super sure it is sorted :-)
-    doubly_sorted_data = sorted(sorted_data)
-    return doubly_sorted_data
+    return sorted(sorted_data)
 
 def stupid_sort(data):
     """Sorts `data` in a stupid way.
+
     Returns the `data` after sorting it.
     """
     while True:
