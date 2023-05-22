@@ -38,19 +38,19 @@ class TestMedium(unittest.TestCase): # noqa: D101
         self.assertFalse(are_speed_measurements({"x": 1.0}))
         self.assertFalse(are_speed_measurements({"x": 1.0, "y": 2.0, "z": 3.0}))
         nasty_data_1 = {
-            "function_index": [0, 1, 234567], # Oops
+            "function_name": [0, 1, 234567], # Oops
             "data_length": [0, 0],
             "runtime_speed_secs": [0.1, 0.2],
         }
         self.assertFalse(are_speed_measurements(nasty_data_1))
         nasty_data_2 = {
-            "function_index": [0, 1],
+            "function_name": [0, 1],
             "data_length": [0, 0, 123456789], # Oops
             "runtime_speed_secs": [0.1, 0.2],
         }
         self.assertFalse(are_speed_measurements(nasty_data_2))
         nasty_data_3 = {
-            "function_index": [0, 1],
+            "function_name": [0, 1],
             "data_length": [0, 0],
             "runtime_speed_secs": [0.1, 0.2, 0.3456789], # Oops
         }
