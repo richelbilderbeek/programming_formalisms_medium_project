@@ -144,8 +144,7 @@ class TestMedium(unittest.TestCase): # noqa: D101
 
     def test_stupid_sort(self): # noqa: D102
         self.assertIsNotNone(stupid_sort.__doc__)
-        data = get_datas()[0]
+        data = get_datas(rng_seed = 42, data_lengths = [3])[0]
         self.assertFalse(is_sorted(data))
         sorted_data = stupid_sort(data)
         self.assertTrue(is_sorted(sorted_data))
-
