@@ -175,14 +175,7 @@ class TestSmall(unittest.TestCase): # noqa: D101
     def test_is_even(self): # noqa: D102
         self.assertIsNotNone(is_even.__doc__)
         self.assertFalse(is_even(1))
-
-        has_thrown = False
-        try:
-            is_even(3.14)
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
+        self.assertRaises(TypeError, is_even, 3.14)
 
     def test_is_number(self): # noqa: D102
         self.assertIsNotNone(is_number.__doc__)
@@ -193,26 +186,14 @@ class TestSmall(unittest.TestCase): # noqa: D101
     def test_is_odd(self): # noqa: D102
         self.assertIsNotNone(is_odd.__doc__)
         self.assertFalse(is_odd(2))
-
-        has_thrown = False
-        try:
-            is_odd(3.14)
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(TypeError, is_odd, 3.14)
 
     def test_is_probability(self): # noqa: D102
         self.assertIsNotNone(is_probability.__doc__)
         self.assertTrue(is_probability(0.1))
         self.assertFalse(is_probability(1.2))
         self.assertFalse(is_probability(-1.2))
-
-        has_thrown = False
-        try:
-            is_probability("I am a string")
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(TypeError, is_probability, "I am a string")
 
     def test_is_string(self): # noqa: D102
         self.assertIsNotNone(is_string.__doc__)
@@ -225,17 +206,6 @@ class TestSmall(unittest.TestCase): # noqa: D101
         self.assertTrue(is_zero(0))
         self.assertTrue(is_zero(0.0))
         self.assertFalse(is_zero(1))
+        self.assertRaises(TypeError, is_zero, {1, 2})
+        self.assertRaises(TypeError, is_zero, "I am a string")
 
-        has_thrown = False
-        try:
-            is_zero( { 1, 2 } )
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            is_zero("I am a string")
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
