@@ -15,6 +15,7 @@ from src.pfmp_richelbilderbeek.small import (
     is_even,
     is_number,
     is_odd,
+    is_prime,
     is_probability,
     is_string,
     is_zero,
@@ -103,6 +104,13 @@ class TestSmall(unittest.TestCase): # noqa: D101
         self.assertIsNotNone(is_odd.__doc__)
         self.assertFalse(is_odd(2))
         self.assertRaises(TypeError, is_odd, 3.14)
+
+    def test_is_prime(self): # noqa: D102
+        self.assertIsNotNone(is_prime.__doc__)
+        self.assertRaises(TypeError, is_prime, "I am a string")
+        self.assertTrue(is_prime(2))
+        self.assertFalse(is_prime(1))
+        self.assertTrue(is_prime(11))
 
     def test_is_probability(self): # noqa: D102
         self.assertIsNotNone(is_probability.__doc__)

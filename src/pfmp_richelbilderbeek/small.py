@@ -173,6 +173,22 @@ def is_odd(x):
     """
     return not is_even(x)
 
+def is_prime(x):
+    """Determine if `x` is prime.
+
+    Returns True if `x` is an integer that is prime.
+    Returns False if `x` is an integer that is not prime.
+    Raises a TypeError if `x` is not an integer
+    """
+    if not isinstance(x, int):
+        raise TypeError("'x' must be an integer")
+    if x < 2:
+        return False    
+    for i in range(2, x):
+        if x % i == 0:
+            return False
+    return True
+
 def is_probability(x):
     """Determine if `x` is a probability.
 
