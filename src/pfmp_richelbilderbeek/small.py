@@ -181,13 +181,12 @@ def is_prime(x):
     Raises a TypeError if `x` is not an integer
     """
     if not isinstance(x, int):
-        raise TypeError("'x' must be an integer")
-    if x < 2:
-        return False    
-    for i in range(2, x):
-        if x % i == 0:
-            return False
-    return True
+        message = "'x' must be an integer"
+        # Not ready for an exception class yet
+        raise TypeError(message) # noqa: TRY003
+    if x < 2: # noqa: PLR2004
+        return False
+    return all(x % i != 0 for i in range(2, x))
 
 def is_probability(x):
     """Determine if `x` is a probability.
