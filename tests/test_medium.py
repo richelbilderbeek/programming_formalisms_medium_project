@@ -6,6 +6,7 @@ from src.pfmp_richelbilderbeek.medium import (
     are_functions,
     are_speed_measurements,
     get_datas,
+    get_digits,
     get_sorting_functions,
     get_speed_measurements,
     get_test_datas,
@@ -61,6 +62,14 @@ class TestMedium(unittest.TestCase): # noqa: D101
         self.assertTrue(is_list(get_datas()))
         self.assertEqual(get_datas(42), get_datas(42))
         self.assertNotEqual(get_datas(42), get_datas(43))
+
+    def test_get_digits(self): # noqa: D102
+        self.assertIsNotNone(get_digits.__doc__)
+        self.assertRaises(TypeError, get_digits, "evil string")
+        self.assertEqual(get_digits(1), [1])
+        self.assertEqual(get_digits(0), [0])
+        self.assertEqual(get_digits(12), [1, 2])
+        self.assertEqual(get_digits(-12), [1, 2])
 
     def test_get_sorting_functions(self): # noqa: D102
         self.assertIsNotNone(get_sorting_functions.__doc__)
