@@ -43,134 +43,50 @@ class TestSmall(unittest.TestCase): # noqa: D101
         self.assertIsNotNone(check_are_numbers.__doc__)
         check_are_numbers([3.14])
         check_are_numbers([3.14, 42])
-        has_thrown = False
-        try:
-            check_are_numbers("A")
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_are_numbers, "A")
 
     def test_check_different(self): # noqa: D102
         self.assertIsNotNone(check_different.__doc__)
         check_different(1.2, 1.3)
         check_different(1.2, "A")
-
-        has_thrown = False
-        try:
-            check_different(1.1, 1.1)
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_different("1.1", "1.1")
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_different, 1.1, 1.1)
+        self.assertRaises(RuntimeError, check_different, "1.1", "1.1")
 
     def test_check_equal(self): # noqa: D102
         self.assertIsNotNone(check_equal.__doc__)
         check_equal(1.2, 1.2)
         check_equal("A", "A")
-
-        has_thrown = False
-        try:
-            check_equal(1.1, 1.2)
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_equal(1.1, "1.1")
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_equal, 1.1, 2.2)
+        self.assertRaises(RuntimeError, check_equal, 1.1, "1.1")
 
     def test_check_is_number(self): # noqa: D102
         self.assertIsNotNone(check_is_number.__doc__)
         check_is_number(1.2)
-
-        has_thrown = False
-        try:
-            check_is_number( [1.1, 1.2] )
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_is_number("1.1")
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_is_number, [1.1, 2.2])
+        self.assertRaises(RuntimeError, check_is_number, "0.1")
 
     def test_check_is_probability(self): # noqa: D102
         self.assertIsNotNone(check_is_probability.__doc__)
         check_is_probability(0.2)
-
-        has_thrown = False
-        try:
-            check_is_probability( [0.1, 0.2] )
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_is_probability("0.1")
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_is_probability(123.456)
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_is_probability, [0.1, 0.2])
+        self.assertRaises(RuntimeError, check_is_probability, "0.1")
+        self.assertRaises(RuntimeError, check_is_probability, 123.456)
 
     def test_check_is_string(self): # noqa: D102
         self.assertIsNotNone(check_is_string.__doc__)
         check_is_string("A")
-
-        has_thrown = False
-        try:
-            check_is_string( ["A", "B"] )
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
-        has_thrown = False
-        try:
-            check_is_string(3.14)
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(RuntimeError, check_is_string, ["A", "B"])
+        self.assertRaises(RuntimeError, check_is_string, 3.14)
 
     def test_divide_safely(self): # noqa: D102
         self.assertIsNotNone(divide_safely.__doc__)
         self.assertTrue(divide_safely(1.2, 0.3) > 0.0) # noqa: PLR2004
-
-        has_thrown = False
-        try:
-            divide_safely(1.1, 0.0)
-        except RuntimeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
-
+        self.assertRaises(RuntimeError, divide_safely, 1.1, 0.0)
 
     def test_is_dividable_by_three(self): # noqa: D102
         self.assertIsNotNone(is_dividable_by_three)
         self.assertFalse(is_dividable_by_three(2))
-
-        has_thrown = False
-        try:
-            is_dividable_by_three(3.14)
-        except TypeError:
-            has_thrown = True
-        self.assertTrue(has_thrown)
+        self.assertRaises(TypeError, is_dividable_by_three, 3.14)
 
     def test_is_even(self): # noqa: D102
         self.assertIsNotNone(is_even.__doc__)
