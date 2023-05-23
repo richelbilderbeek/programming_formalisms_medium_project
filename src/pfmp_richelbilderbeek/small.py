@@ -184,7 +184,7 @@ def is_prime(x):
         message = "'x' must be an integer"
         # Not ready for an exception class yet
         raise TypeError(message) # noqa: TRY003
-    if x < 2: # noqa: PLR2004
+    if x < 2:
         return False
     return all(x % i != 0 for i in range(2, x))
 
