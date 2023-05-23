@@ -95,10 +95,9 @@ def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]): # noqa: B006
     return datas
 
 def get_digits(x):
-    """
-    Gets the digits of an integer number.
+    """Get the digits of an integer number.
 
-    Gets the digits of an integer number,
+    Get the digits of an integer number,
     for example, '123' becomes '[1, 2, 3]'
     and '0' becomes '[0]'.
     Negative numbers have only their digits collected,
@@ -107,13 +106,14 @@ def get_digits(x):
     Will raise TypeError if `x` is not an integer.
     """
     if not isinstance(x, int):
-        raise TypeError("'x' must be an integer")
+        message = "'x' must be an integer"
+        raise TypeError(message)
     if x < 0:
         return get_digits(-x)
     digits = []
     while True:
         digits.insert(0, x % 10)
-        if x < 10:
+        if x < 10:  # noqa: PLR2004
             return digits
         x = x // 10
 
