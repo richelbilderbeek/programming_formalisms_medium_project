@@ -1,4 +1,10 @@
-"""These are all the simple functions of The Small Project."""
+"""Easy general-purpose functions.
+
+'Easy' means:
+ * a cyclomatic complexity of 1 to 4
+ * no for-loops
+ * maximally one variable modified
+"""
 
 def are_numbers(x):
     """Determine if `x` is one or more numbers.
@@ -173,21 +179,6 @@ def is_odd(x):
     Returns `True` if `x` is odd
     """
     return not is_even(x)
-
-def is_prime(x):
-    """Determine if `x` is prime.
-
-    Returns True if `x` is an integer that is prime.
-    Returns False if `x` is an integer that is not prime.
-    Raises a TypeError if `x` is not an integer
-    """
-    if not isinstance(x, int):
-        message = "'x' must be an integer"
-        raise TypeError(message)
-    first_prime = 2
-    if x < first_prime:
-        return False
-    return all(x % i != 0 for i in range(first_prime, x))
 
 def is_probability(x):
     """Determine if `x` is a probability.

@@ -1,7 +1,7 @@
-"""Tests all function in src.pfmp_richelbilderbeek.trivial_solutions."""
+"""Tests all function in src.pfmp_richelbilderbeek.easy_solutions."""
 import unittest
 
-from src.pfmp_richelbilderbeek.trivial_solutions import (
+from src.pfmp_richelbilderbeek.easy_solutions import (
     are_numbers,
     are_strings,
     check_are_numbers,
@@ -15,18 +15,17 @@ from src.pfmp_richelbilderbeek.trivial_solutions import (
     is_even,
     is_number,
     is_odd,
-    is_prime,
     is_probability,
     is_string,
     is_zero,
 )
 
 
-class TestSmall(unittest.TestCase):
+class TestEasySolutions(unittest.TestCase):
 
-    """Class to test the functions in src.pfmp_richelbilderbeek.trivial_solutions."""
+    """Class to test the functions in src.pfmp_richelbilderbeek.easy_solutions."""
 
-    def test_are_numbers(self: "TestSmall"):
+    def test_are_numbers(self):
         """Test 'are_numbers'."""
         self.assertIsNotNone(are_numbers.__doc__)
         self.assertFalse(are_numbers(":-/"))
@@ -123,14 +122,6 @@ class TestSmall(unittest.TestCase):
         self.assertIsNotNone(is_odd.__doc__)
         self.assertFalse(is_odd(2))
         self.assertRaises(TypeError, is_odd, 3.14)
-
-    def test_is_prime(self):
-        """Test 'is_prime'."""
-        self.assertIsNotNone(is_prime.__doc__)
-        self.assertRaises(TypeError, is_prime, "I am a string")
-        self.assertTrue(is_prime(2))
-        self.assertFalse(is_prime(1))
-        self.assertTrue(is_prime(11))
 
     def test_is_probability(self):
         """Test 'is_string'."""
