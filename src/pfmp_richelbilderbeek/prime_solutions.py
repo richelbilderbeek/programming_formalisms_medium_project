@@ -33,6 +33,27 @@ def are_primes_cache_with_dict(xs):
         unique_xs_dict[e] = is_prime(e)
     return [unique_xs_dict[x] for x in xs]
 
+def are_primes_cache_with_set(xs):
+    """Determine for each element in `xs` if it is prime.
+
+    This function stores the results of earlier calculations
+    in a set.
+
+    Input: `xs`: a list of integers
+
+    Returns a list of booleans with the same length as `xs`.
+    Returns an empty list if `xs` is empty.
+    Raises TypeError if `xs` is not a list of integers, nor an empty list.
+    """
+    if len(xs) == 0:
+        return []
+    unique_xs = set(xs)
+    are_xs_primes = are_primes_no_cache(list(unique_xs))
+    xs_that_are_prime = list(unique_xs)[are_xs_primes == True]
+    return [xs in xs_that_are_prime]
+    
+
+
 def are_primes_no_cache(xs):
     """Determine for each element in `xs` if it is prime.
 
