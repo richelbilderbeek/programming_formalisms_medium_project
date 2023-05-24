@@ -53,6 +53,7 @@ def are_speed_measurements(x):
 
 def get_alignment_functions():
     """Get a list of alignment functions."""
+    return []
 
 def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]):
     """Get a list of datasets (hence, the reduplicated/Gollumese plural).
