@@ -119,7 +119,8 @@ def divide_safely(a, b):
 
     Returns `a` divided by `b`
     """
-    if b == 0.0: # noqa: PLR2004: this is not a magic value
+    zero = 0.0
+    if b == zero:
         msg = "'b' must not be zero"
         raise RuntimeError(
             msg,
@@ -183,9 +184,10 @@ def is_prime(x):
     if not isinstance(x, int):
         message = "'x' must be an integer"
         raise TypeError(message)
-    if x < 2: # noqa: PLR2004
+    first_prime = 2
+    if x < first_prime:
         return False
-    return all(x % i != 0 for i in range(2, x))
+    return all(x % i != 0 for i in range(first_prime, x))
 
 def is_probability(x):
     """Determine if `x` is a probability.
@@ -202,7 +204,9 @@ def is_probability(x):
             msg,
             "Actual type of 'number': ", type(x),
         )
-    return x >= 0.0 and x <= 1.0 # noqa: PLR2004: these are not magic values
+    min_probability = 0.0
+    max_probability = 1.0
+    return x >= min_probability and x <= max_probability
 
 def is_string(x):
     """Determine if `x` is one string.

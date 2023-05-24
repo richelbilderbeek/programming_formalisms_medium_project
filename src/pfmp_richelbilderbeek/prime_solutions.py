@@ -80,7 +80,7 @@ def are_speed_measurements(x):
         return False
     return True
 
-def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]): # noqa: B006
+def get_datas(rng_seed = 42, data_lengths = [9, 99, 999]):
     """Get a list of datasets (hence, the reduplicated/Gollumese plural).
 
     Each dataset is list of numbers,
@@ -203,7 +203,7 @@ def is_sorted(data):
 def save_dict(x, csv_filename):
     """Save the dictionary `x` to a file named `csv_filename`."""
     # should fail in debug mode only
-    assert is_dict(x) # noqa: S101
+    assert is_dict(x)
     data_frame = DataFrame.from_dict(x)
     data_frame.to_csv(csv_filename, index = False)
     pass
@@ -211,7 +211,7 @@ def save_dict(x, csv_filename):
 def save_speed_measurements(speed_measurements, csv_filename):
     """Save the `speed_measurements` to a file named `csv_filename`."""
     # should fail in debug mode only
-    assert are_speed_measurements(speed_measurements) # noqa: S101
+    assert are_speed_measurements(speed_measurements)
     save_dict(
         x = speed_measurements,
         csv_filename = csv_filename,
