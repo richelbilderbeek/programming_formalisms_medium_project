@@ -3,6 +3,8 @@ import unittest
 
 from src.pfmp_richelbilderbeek.prime_solutions import (
     are_primes,
+    are_primes_cache_with_dict,
+    are_primes_no_cache,
     is_prime,
 )
 
@@ -26,3 +28,18 @@ class TestPrimeSolutions(unittest.TestCase):
         self.assertEqual(are_primes([2]), [True])
         self.assertEqual(are_primes([3, 4]), [True, False])
 
+    def test_are_primes_no_cache(self):
+        """Test 'are_primes_no_cache'."""
+        self.assertIsNotNone(are_primes_no_cache.__doc__)
+        self.assertEqual(are_primes_no_cache([]), [])
+        self.assertEqual(are_primes_no_cache([2]), [True])
+        self.assertEqual(are_primes_no_cache([3, 4]), [True, False])
+
+    def test_are_primes_cache_with_dict(self):
+        """Test 'are_primes_cache_with_dict'."""
+        self.assertIsNotNone(are_primes_cache_with_dict.__doc__)
+        self.assertEqual(are_primes_cache_with_dict([]), [])
+        self.assertEqual(are_primes_cache_with_dict([2]), [True])
+        self.assertEqual(are_primes_cache_with_dict([3, 4]), [True, False])
+        self.assertEqual(are_primes_cache_with_dict([3, 3, 4]), [True, True, False])
+        self.assertEqual(are_primes_cache_with_dict([4, 3]), [False, True])

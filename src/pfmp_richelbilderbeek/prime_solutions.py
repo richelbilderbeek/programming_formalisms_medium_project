@@ -3,7 +3,44 @@
 def are_primes(xs):
     """Determine for each element in `xs` if it is prime.
 
-    `xs`: a list of integers
+    Input: `xs`: a list of integers
+
+    Returns a list of booleans with the same length as `xs`.
+    Returns an empty list if `xs` is empty.
+    Raises TypeError if `xs` is not a list of integers, nor an empty list.
+    """
+    return are_primes_no_cache(xs)
+
+def are_primes_cache_with_dict(xs):
+    """Determine for each element in `xs` if it is prime.
+
+    This function stores the results of earlier calculations
+    in a dictionary.
+
+    Input: `xs`: a list of integers
+
+    Returns a list of booleans with the same length as `xs`.
+    Returns an empty list if `xs` is empty.
+    Raises TypeError if `xs` is not a list of integers, nor an empty list.
+    """
+    if len(xs) == 0:
+        return []
+    unique_xs_set = set(xs)
+    n_unique_xs = len(unique_xs_set)
+    nones = [None] * n_unique_xs
+    unique_xs_dict = dict(zip(unique_xs_set, nones))
+    for e in unique_xs_dict:
+        unique_xs_dict[e] = is_prime(e)
+    return [unique_xs_dict[x] for x in xs]
+
+def are_primes_no_cache(xs):
+    """Determine for each element in `xs` if it is prime.
+
+    This function does not store the results of earlier calculations.
+    Instead, for each integer element in `xs` it is determined if it is prime,
+    even if all elements are the same.
+
+    Input: `xs`: a list of integers
 
     Returns a list of booleans with the same length as `xs`.
     Returns an empty list if `xs` is empty.
