@@ -9,7 +9,7 @@ def are_primes(xs):
     Returns an empty list if `xs` is empty.
     Raises TypeError if `xs` is not a list of integers, nor an empty list.
     """
-    return xs
+    return [is_prime(i) for i in xs]
 
 def is_prime(x):
     """Determine if `x` is prime.

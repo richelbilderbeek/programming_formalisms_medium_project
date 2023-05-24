@@ -22,3 +22,7 @@ class TestPrimeSolutions(unittest.TestCase):
     def test_are_primes(self):
         """Test 'are_primes'."""
         self.assertIsNotNone(are_primes.__doc__)
+        self.assertEqual(are_primes([]), [])
+        self.assertEqual(are_primes([2]), [True])
+        self.assertEqual(are_primes([3, 4]), [True, False])
+
