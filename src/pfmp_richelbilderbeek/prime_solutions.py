@@ -1,5 +1,16 @@
 """The functions from The Medium Project."""
 
+def are_primes(xs):
+    """Determine for each element in `xs` if it is prime.
+
+    `xs`: a list of integers
+
+    Returns a list of booleans with the same length as `xs`.
+    Returns an empty list if `xs` is empty.
+    Raises TypeError if `xs` is not a list of integers, nor an empty list.
+    """
+    return xs
+
 def is_prime(x):
     """Determine if `x` is prime.
 

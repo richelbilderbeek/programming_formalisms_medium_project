@@ -2,6 +2,7 @@
 import unittest
 
 from src.pfmp_richelbilderbeek.prime_solutions import (
+    are_primes,
     is_prime,
 )
 
@@ -17,3 +18,7 @@ class TestPrimeSolutions(unittest.TestCase):
         self.assertTrue(is_prime(2))
         self.assertFalse(is_prime(1))
         self.assertTrue(is_prime(11))
+
+    def test_are_primes(self):
+        """Test 'are_primes'."""
+        self.assertIsNotNone(are_primes.__doc__)
