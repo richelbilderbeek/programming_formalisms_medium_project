@@ -36,7 +36,7 @@ def are_primes_cache_with_dict(xs):
 def are_primes_cache_with_set(xs):
     """Determine for each element in `xs` if it is prime.
 
-    This function uses a set to store all (unique) integers in `xs` 
+    This function uses a set to store all (unique) integers in `xs`
     that are prime, after which it looks up for each element in `xs`
     if it is in that set.
 
@@ -51,7 +51,9 @@ def are_primes_cache_with_set(xs):
     unique_xs_list = list(set(xs))
     are_unique_xs_primes = are_primes_no_cache(unique_xs_list)
     assert len(unique_xs_list) == len(are_unique_xs_primes)
-    xs_that_are_prime = [unique_xs_list[i] for i in range(len(unique_xs_list)) if are_unique_xs_primes[i]]
+    xs_that_are_prime = [
+        unique_xs_list[i] for i in range(len(unique_xs_list)) if are_unique_xs_primes[i]
+    ]
     return [i in xs_that_are_prime for i in xs]
 
 
