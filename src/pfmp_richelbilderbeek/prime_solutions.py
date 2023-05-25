@@ -15,7 +15,7 @@ def are_primes_cache_with_dict(xs):
     """Determine for each element in `xs` if it is prime.
 
     This function stores the results of earlier calculations
-    in a dictionary.
+    in a dictionary. The dictionary stores if a number is prime yes/no.
 
     Input: `xs`: a list of integers
 
@@ -48,15 +48,11 @@ def are_primes_cache_with_set(xs):
     """
     if len(xs) == 0:
         return []
-    return [] # STUB
-    unique_xs_set = set(xs)
-    unique_xs_list = list(unique_xs_set)
+    unique_xs_list = list(set(xs))
     are_unique_xs_primes = are_primes_no_cache(unique_xs_list)
+    assert len(unique_xs_list) == len(are_unique_xs_primes)
     xs_that_are_prime = [unique_xs_list[i] for i in range(len(unique_xs_list)) if are_unique_xs_primes[i]]
-    # xs_that_are_prime = [i for (i, v) in zip(unique_xs_list, are_unique_xs_primes) if v]
-    #return xs in xs_that_are_prime
-    return [xs[i] for i in range(len(xs)) if i in xs_that_are_prime]
-    
+    return [i in xs_that_are_prime for i in xs]
 
 
 def are_primes_no_cache(xs):

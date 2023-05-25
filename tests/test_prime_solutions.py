@@ -50,7 +50,10 @@ class TestPrimeSolutions(unittest.TestCase):
         self.assertIsNotNone(are_primes_cache_with_set.__doc__)
         self.assertEqual(are_primes_cache_with_set([]), [])
         self.assertEqual(are_primes_cache_with_set([1]), [False])
-        #self.assertEqual(are_primes_cache_with_set([1, 2, 3, 3, 4, 5, 5]), [False, True, True, True, False, True, True])
-        #self.assertEqual(are_primes_cache_with_set([2]), [True])
-        #self.assertEqual(are_primes_cache_with_set([3, 4]), [True, False])
-        #self.assertEqual(are_primes_cache_with_set([4, 3]), [False, True])
+        self.assertEqual(are_primes_cache_with_set(
+            [1, 2, 3, 4, 1, 2, 3, 4]), 
+            [False, True, True, False, False, True, True, False]
+        )
+        self.assertEqual(are_primes_cache_with_set([2]), [True])
+        self.assertEqual(are_primes_cache_with_set([3, 4]), [True, False])
+        self.assertEqual(are_primes_cache_with_set([4, 3]), [False, True])
