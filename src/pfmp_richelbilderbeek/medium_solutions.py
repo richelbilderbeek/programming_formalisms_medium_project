@@ -8,6 +8,7 @@ Moderate complexity' means:
 
 from random import randint
 
+
 def flip_coin():
     """Produce a random boolean."""
     return randint(0, 1) > 0 # noqa: S311

@@ -3,9 +3,9 @@ import os.path
 import unittest
 
 from src.pfmp_richelbilderbeek.align_solutions import (
+    DnaSequence,
     are_functions,
     are_speed_measurements,
-    DnaSequence,
     get_alignment_functions,
     get_datas,
     get_speed_measurements,

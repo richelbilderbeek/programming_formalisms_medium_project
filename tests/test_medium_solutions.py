@@ -1,11 +1,12 @@
 """Test the functions in src.pfmp_richelbilderbeek.medium_solutions."""
-from random import seed
 import unittest
+from random import seed
 
 from src.pfmp_richelbilderbeek.medium_solutions import (
     flip_coin,
     get_digits,
 )
+
 
 class TestMediumSolutions(unittest.TestCase):
 
