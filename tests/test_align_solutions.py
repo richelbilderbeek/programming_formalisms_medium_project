@@ -5,6 +5,7 @@ import unittest
 from src.pfmp_richelbilderbeek.align_solutions import (
     are_functions,
     are_speed_measurements,
+    DnaSequence,
     get_alignment_functions,
     get_datas,
     get_speed_measurements,
@@ -55,6 +56,14 @@ class TestAlignSolutions(unittest.TestCase):
             "runtime_speed_secs": [0.1, 0.2, 0.3456789], # Oops
         }
         self.assertFalse(are_speed_measurements(nasty_data_3))
+
+    def test_dna_sequence_class(self):
+        """Test the 'DnaSequence' class."""
+        self.assertIsNotNone(DnaSequence.__doc__)
+        self.assertRaises(TypeError, DnaSequence, 12345)
+        self.assertRaises(TypeError, DnaSequence, ["A", "C"])
+        self.assertRaises(TypeError, DnaSequence, "nonsense")
+        self.assertEqual(DnaSequence("ACGT").s, "ACGT")
 
     def test_get_datas(self):
         """Test 'get_datas'."""

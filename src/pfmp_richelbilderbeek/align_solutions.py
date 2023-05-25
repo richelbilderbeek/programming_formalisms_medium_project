@@ -51,6 +51,26 @@ def are_speed_measurements(x):
         return False
     return True
 
+class DnaSequence:
+
+    """Class for a DNA sequence."""
+
+    def __init__(self, s):
+        """Create a DNA sequence.
+
+        `s` must a string consisting of uppercase nucleotide one-letter abbreviations,
+        for example 'ACGT'
+        """
+        if not isinstance(s, str):
+            message = "'s' must be a string"
+            raise TypeError(message)
+        import re
+        dna_pattern = re.compile("^[ACGT]*$")
+        if not dna_pattern.match(s):
+            message = "'s' must match pattern " + dna_pattern
+            raise TypeError(message)
+        self.s = s
+
 def get_alignment_functions():
     """Get a list of alignment functions."""
     return []

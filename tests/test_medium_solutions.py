@@ -18,6 +18,12 @@ class TestMediumSolutions(unittest.TestCase):
         self.assertFalse(flip_coin())
         seed(5)
         self.assertTrue(flip_coin())
+        flips = [flip_coin() for i in range(1000)]
+        n_heads = sum(flips)
+        lowest_expectation = 400
+        heighest_expectation = 600
+        self.assertTrue(n_heads > lowest_expectation)
+        self.assertTrue(n_heads < heighest_expectation)
 
     def test_get_digits(self):
         """Test 'get_digits'."""
