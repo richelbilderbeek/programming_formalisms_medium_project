@@ -72,6 +72,21 @@ def are_primes_no_cache(xs):
     """
     return [is_prime(i) for i in xs]
 
+def are_primes_no_cache_recursion(xs):
+    """Determine for each element in `xs` if it is prime.
+
+    This function does not store the results of earlier calculations.
+    Instead, for each integer element in `xs` it is determined if it is prime,
+    even if all elements are the same.
+
+    Input: `xs`: a list of integers
+
+    Returns a list of booleans with the same length as `xs`.
+    Returns an empty list if `xs` is empty.
+    Raises TypeError if `xs` is not a list of integers, nor an empty list.
+    """
+    return [is_prime_recursive(i) for i in xs]
+
 def is_prime(x):
     """Determine if `x` is prime.
 
@@ -86,3 +101,27 @@ def is_prime(x):
     if x < first_prime:
         return False
     return all(x % i != 0 for i in range(first_prime, x))
+
+def is_prime_recursive(n, i = 2):
+    """Determine if `x` is prime.
+
+    Returns True if `x` is an integer that is prime.
+    Returns False if `x` is an integer that is not prime.
+    Raises a TypeError if `x` is not an integer
+
+    Modified after code by Smitha Dinesh Semwal
+    from https://www.geeksforgeeks.org/recursive-program-prime-number/
+    """
+    if not isinstance(n, int):
+        message = "'n' must be an integer"
+        raise TypeError(message)
+    lowest_prime = 2
+
+    if n <= lowest_prime:
+        return n == lowest_prime
+    if n % i == 0:
+        return False
+    if i * i > n:
+        return True
+    return is_prime_recursive(n, i + 1)
+
