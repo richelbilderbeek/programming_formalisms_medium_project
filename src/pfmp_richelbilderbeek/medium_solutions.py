@@ -6,6 +6,12 @@ Moderate complexity' means:
  * maximally two variables modified
 """
 
+from random import randint, seed
+
+def flip_coin():
+    """Produce a random boolean."""
+    return randint(0, 2) > 0
+
 def get_digits(x):
     """Get the digits of an integer number.
 
