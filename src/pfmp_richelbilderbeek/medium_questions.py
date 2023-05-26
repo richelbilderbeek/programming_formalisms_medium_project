@@ -21,3 +21,51 @@ def is_prime(x):
         return False
     return all(x % i != 0 for i in range(first_prime, x))
 
+"""Exercise 1: develop the function 'get_digits'
+
+This function splits up a number in its digits [*], 
+for example '12' becomes '[1, 2]'.
+
+-   Pair up
+-   Switch roles every 3 minutes
+-   Discuss how to keep the time first
+-   Person with GitHub username first in alphabet starts
+-   Create a Fork of <https://github.com/richelbilderbeek/programming_formalisms_medium_project>
+-   Develop a function called `get_digits`
+-   Try to be **exemplary**
+
+[*] vague on purpose
+
+"""
+
+"""Exercise 2: develop the function 'flip_coin'
+
+This function returns either True of False, as if determined by the flip of a coin [*].
+
+-   Pair up
+-   Switch roles every 3 minutes
+-   Discuss how to keep the time first
+-   Person with GitHub username first in alphabet starts
+-   Create a Fork of <https://github.com/richelbilderbeek/programming_formalisms_medium_project>
+-   Develop a function called `get_digits`
+-   Try to be **exemplary**
+
+[*] vague on purpose
+
+"""
+
+"""Exercise 3: develop the function 'roll_dice'
+
+This function returns a number between 1 and 6, as if determined by the roll of a dice [*].
+
+-   Pair up
+-   Switch roles every 3 minutes
+-   Discuss how to keep the time first
+-   Person with GitHub username first in alphabet starts
+-   Create a Fork of <https://github.com/richelbilderbeek/programming_formalisms_medium_project>
+-   Develop a function called `get_digits`
+-   Try to be **exemplary**
+
+[*] vague on purpose
+
+"""

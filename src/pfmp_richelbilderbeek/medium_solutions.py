@@ -37,3 +37,7 @@ def get_digits(x):
         if x < digits_in_numbering_system:
             return digits
         x = x // digits_in_numbering_system
+
+def roll_dice():
+    """Produce a random integer, similar to a dice toll."""
+    return randint(1, 6) # noqa: S311
