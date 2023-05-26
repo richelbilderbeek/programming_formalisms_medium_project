@@ -57,7 +57,7 @@ class TestMediumSolutions(unittest.TestCase):
         self.assertEqual(dice_roll_1, dice_roll_2)
 
         # Make a dict of 60
-        dice_rolls = dict()
+        dice_rolls = {}
         dice_rolls[1] = 0
         dice_rolls[2] = 0
         dice_rolls[3] = 0
@@ -65,7 +65,7 @@ class TestMediumSolutions(unittest.TestCase):
         dice_rolls[5] = 0
         dice_rolls[6] = 0
         seed(42)
-        for i in range(60):
+        for _ in range(60):
           dice_roll = roll_dice()
           dice_rolls[dice_roll] = dice_rolls[dice_roll] + 1
         lowest_expectation = 5

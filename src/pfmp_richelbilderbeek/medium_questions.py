@@ -23,7 +23,7 @@ def is_prime(x):
 
 """Exercise 1: develop the function 'get_digits'
 
-This function splits up a number in its digits [*], 
+This function splits up a number in its digits [*],
 for example '12' becomes '[1, 2]'.
 
 -   Pair up
@@ -38,7 +38,7 @@ for example '12' becomes '[1, 2]'.
 
 """
 
-"""Exercise 2: develop the function 'flip_coin'
+"""Exercise 2a: develop the function 'flip_coin'
 
 This function returns either True of False, as if determined by the flip of a coin [*].
 
@@ -54,9 +54,10 @@ This function returns either True of False, as if determined by the flip of a co
 
 """
 
-"""Exercise 3: develop the function 'roll_dice'
+"""Exercise 2b: develop the function 'roll_dice'
 
-This function returns a number between 1 and 6, as if determined by the roll of a dice [*].
+This function returns a number between 1 and 6,
+as if determined by the roll of a dice [*].
 
 -   Pair up
 -   Switch roles every 3 minutes
@@ -67,5 +68,4 @@ This function returns a number between 1 and 6, as if determined by the roll of 
 -   Try to be **exemplary**
 
 [*] vague on purpose
-
 """

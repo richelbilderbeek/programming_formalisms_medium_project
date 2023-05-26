@@ -43,7 +43,7 @@ In this context, 'even', means 'dividable by two', e.g. 2, 4, -6, 0.
 -   Try to be **exemplary**
 """
 
-"""Exercise 2: develop the function 'is_odd' 
+"""Exercise 2: develop the function 'is_odd'
 
 In this context, 'odd', means 'not dividable by two', e.g. 1, 3, -5.
 
@@ -54,7 +54,8 @@ In this context, 'odd', means 'not dividable by two', e.g. 1, 3, -5.
 
 """Exercise 3: develop the function 'is_probability'.
 
-In this context: the change of something happening; a value between zero and one, including zero and one.
+In this context: the change of something happening;
+a value between zero and one, including zero and one.
 
 -   Create a GitHub repository called `is_probability`
 -   Develop a function called `is_probability`
@@ -72,7 +73,7 @@ This function determines if a number is a number.
 
 """Exercise 5: develop the function 'are_numbers'.
 
-This function determines if the input are numbers [*], 
+This function determines if the input are numbers [*],
 similar to `is_number`, but for more numbers.
 
 -   Create a GitHub repository called `are_numbers`
