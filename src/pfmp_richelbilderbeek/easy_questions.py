@@ -11,13 +11,10 @@
 3: `is_probability(p)`
 4: `is_number(x)`
 5: `are_numbers(x)`
-S1: `is_prime(x)`
-
+S1: `is_roman_number(x)`
 """
 
-"""
-Example code
-"""
+"""Example function: `is_zero(x)`."""
 
 def is_zero(x):
     """Determine if `x` is zero.
@@ -83,7 +80,18 @@ similar to `is_number`, but for more numbers.
 [*] vague on purpose
 """
 
-"""Exercise S1: develop the function 'is_prime'.
+"""Exercise S1: develop the function 'is_roman_number'.
+
+This function determines if a string is a roman number.
+
+Examples are: 'I', 'II', 'IV', 'XI', etc.
+
+-   Create a GitHub repository called `is_roman_number`
+-   Develop a function called `is_roman_number`
+-   Try to be **exemplary**
+"""
+
+"""Exercise S2: develop the function 'is_prime'.
 
 This function determines if a number is a prime number.
 
@@ -91,3 +99,4 @@ This function determines if a number is a prime number.
 -   Develop a function called `is_prime`
 -   Try to be **exemplary**
 """
+

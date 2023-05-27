@@ -4,7 +4,16 @@ Moderate complexity' means:
  * a cyclomatic complexity of 1 to 8
  * may have for-loops
  * maximally two variables modified
+ * indeterministic
+
+0: `is_prime(x)`
+1: `get_digits(x)`
+2a: `flip_coin(x)`
+2b: `roll_dice(x)`
 """
+
+
+"""This is an example function"""
 
 def is_prime(x):
     """Determine if `x` is prime.
@@ -35,8 +44,8 @@ for example '12' becomes '[1, 2]'.
 -   Try to be **exemplary**
 
 [*] vague on purpose
-
 """
+
 
 """Exercise 2a: develop the function 'flip_coin'
 

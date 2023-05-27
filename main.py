@@ -1,7 +1,10 @@
-"""Profile the functions of The Small Project and The Medium Project."""
+"""The Medium Project.
+
+Medium-sized project uses in the UPPMAX Programming Formalisms course.
+"""
 import cProfile
 
-from src.pfmp_richelbilderbeek.medium import (
+from src.pfmp_richelbilderbeek.medium_solutions import (
     get_datas,
     get_sorting_functions,
     get_speed_measurements,
