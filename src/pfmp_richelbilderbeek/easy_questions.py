@@ -61,7 +61,7 @@ a value between zero and one, including zero and one.
 
 """Exercise 4: develop the function 'is_number'.
 
-This function determines if a number is a number.
+This function determines if an object is a number.
 
 -   Create a GitHub repository called `is_number`
 -   Develop a function called `is_number`
