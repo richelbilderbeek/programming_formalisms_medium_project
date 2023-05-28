@@ -20,7 +20,6 @@ from src.pfmp_richelbilderbeek.sort_solutions import (
     stupid_sort,
 )
 
-
 class TestSortSolutions(unittest.TestCase):
 
     """Class to test the functions in src.pfmp_richelbilderbeek.prime_solutions."""
